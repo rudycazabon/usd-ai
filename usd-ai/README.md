@@ -1,12 +1,15 @@
 # Introduction 
 
 ## Setup
+Currently this project has been tested to work on Windows 11 with usd-core from PyPi and NVidia USD v25.05 with Python 3.11.11. 
+
 - Install UV package manager from https://astral.sh
 - Execute the following:
   - git clone https://github.com/rudycazabon/usd-ai.git
   - cd usd-ai
   - uv python install "3.11.11"
   - uv venv --python="3.11.11"
+  - ./.venv/Scripts/activate.ps1
   - uv pip install -r .\requirements.txt
 - To test out the server
   - python -m pytest usd-mcp/server/tests/test_server.py
