@@ -1,0 +1,5 @@
+# USD MCP Client requirements
+mcp>=1.11.0
+pytest>=8.4.1
+pytest-asyncio>=1.1.0
+usd-core>=25.5.1

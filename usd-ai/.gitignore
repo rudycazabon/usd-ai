@@ -1,0 +1,13 @@
+## Directories to ignore
+.vscode/
+.venv/
+__pycache__/
+.pytest_cache/
+
+## files to ignore
+*.pyc
+*.pyo
+*.pyd
+*.pdb
+*.log
+.env

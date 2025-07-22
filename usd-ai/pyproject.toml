@@ -1,0 +1,66 @@
+[project]
+name = "usd-mcp"
+version = "0.1.0"
+description = "A Model Context Protocol server for USD (Universal Scene Description) operations"
+readme = "README.md"
+requires-python = ">=3.10"
+authors = [{ name = "USD MCP Server" }]
+keywords = ["mcp", "usd", "3d", "pixar", "universal-scene-description"]
+license = { text = "MIT" }
+classifiers = [
+    "Development Status :: 4 - Beta",
+    "Intended Audience :: Developers",
+    "License :: OSI Approved :: MIT License",
+    "Programming Language :: Python :: 3",
+    "Programming Language :: Python :: 3.10",
+    "Programming Language :: Python :: 3.11",
+    "Programming Language :: Python :: 3.12",
+]
+dependencies = [
+    "anyio>=4.5",
+    "click>=8.1.0",
+    "mcp>=1.0.0",
+    "usd-core>=24.0.0",
+    "pydantic>=2.0.0"
+]
+
+[project.scripts]
+usd-mcp = "server.main:main"
+
+[build-system]
+requires = ["hatchling"]
+build-backend = "hatchling.build"
+
+[tool.hatch.build.targets.wheel]
+packages = ["server"]
+
+[tool.pyright]
+include = ["server"]
+venvPath = "."
+venv = ".venv"
+
+[tool.ruff.lint]
+select = ["E", "F", "I"]
+ignore = []
+
+[tool.ruff]
+line-length = 88
+target-version = "py310"
+
+[tool.uv]
+dev-dependencies = ["pyright>=1.1.378", "pytest>=8.3.3", "ruff>=0.6.9"]
+
+[tool.uv.workspace]
+members = [
+    "usd-mcp/test-dot",
+]
+
+[tool.pytest.ini_options]
+minversion = "6.0"
+addopts = "-ra -q"
+testpaths = [
+    "usd-mcp/server/tests/test_server.py",
+    "usd-mcp/server/tests/test_usd_mcp_server.py",
+    "usd-mcp/client/tests/test_client.py",
+    "usd-mcp/client/tests/test_integration.py"
+]
