@@ -1,7 +1,7 @@
 # Introduction 
 
 ## Setup
-- Install UV package manager from https://astral.uv
+- Install UV package manager from https://astral.sh
 - Execute the following:
   - git clone https://github.com/rudycazabon/usd-ai.git
   - cd usd-ai
