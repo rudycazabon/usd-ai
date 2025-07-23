@@ -52,6 +52,6 @@ Show me the hierarchy and present in formatted JSON.
 ```
 ## Contents
 ### usd-mcp - OpenUSD tools exposed with MCP protocols.
-[usd-mcp README.md](./usd-ai/README.md)
+[usd-mcp README.md](./usd-mcp/README.md)
 
 ### usd-a2a - OpenUSD tools exposed to agentic workflows with the a2a protocol.
