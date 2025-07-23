@@ -19,7 +19,9 @@ sys.path.insert(0, str(Path(__file__).parent.parent.parent))
 from server.server import server
 from server.tools.hierarchy import get_stage_hierarchy_tool
 from server.tools.inspect import inspect_prim_tool
-from server.tools.list_prims import list_stage_prims_tool, find_prims_by_name_tool
+from server.tools.list_prims import list_stage_prims_tool, find_prims_by_na#@pytest.mark.skip(reason="Server process startup test requires additional setup")
+
+    @pytest.mark.asynciome_tool
 from server.tools.load_stage import load_usd_stage_tool
 
 # Path to test USD file
@@ -187,8 +189,9 @@ class TestUSDMCPServerErrorHandling:
 
 class TestUSDMCPServerIntegration:
     """Integration tests for USD MCP server."""
-    
-    @pytest.mark.skip(reason="Server process startup test requires additional setup")
+
+    #@pytest.mark.skip(reason="Server process startup test requires additional setup")
+    @pytest.mark.asyncio
     def test_server_process_startup(self):
         """Test that the server process starts up without errors."""
         # Path to the main.py file
