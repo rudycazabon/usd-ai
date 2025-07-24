@@ -3,6 +3,7 @@
 .venv/
 __pycache__/
 .pytest_cache/
+.claude_checkpoints/
 
 ## files to ignore
 *.pyc

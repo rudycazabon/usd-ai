@@ -4,8 +4,8 @@ from typing import Any, Dict, List
 
 import mcp.types as types
 
-from ..stage_manager import get_stage_manager
-from ..utils.formatting import format_stage_info
+from stage_manager import get_stage_manager
+from utils.formatting import format_stage_info
 
 
 async def load_usd_stage_tool(arguments: Dict[str, Any]) -> List[types.ContentBlock]:

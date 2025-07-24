@@ -2,13 +2,13 @@
 
 from typing import Any, Dict, List, Optional, Tuple
 
-from server.stage_manager import get_stage_manager
-from server.utils.formatting import (
+from stage_manager import get_stage_manager
+from utils.formatting import (
     format_hierarchy_node,
     format_prim_info,
     format_property_info,
 )
-from server.utils.validation import validate_prim_path
+from utils.validation import validate_prim_path
 
 
 class USDPrimInspector:

@@ -5,7 +5,7 @@ from typing import Any, Dict, Optional, Tuple
 
 from pxr import Usd
 
-from server.utils.validation import validate_file_path
+from utils.validation import validate_file_path
 
 
 class USDStageManager:

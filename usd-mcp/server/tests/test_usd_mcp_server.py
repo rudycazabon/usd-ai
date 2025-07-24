@@ -1,28 +1,27 @@
 #!/usr/bin/env python3
 """Test suite for USD MCP Server functionality using pytest."""
 
-import asyncio
 import json
 import os
 import subprocess
 import sys
 import time
 from pathlib import Path
-from typing import Dict, Any, List, Tuple
 
 import pytest
 
-# Add the usd-mcp directory to the Python path
-sys.path.insert(0, str(Path(__file__).parent.parent.parent))
+# Add the server directory to the Python path
+sys.path.insert(0, str(Path(__file__).parent.parent))
 
 # Import server components
-from server.server import server
-from server.tools.hierarchy import get_stage_hierarchy_tool
-from server.tools.inspect import inspect_prim_tool
-from server.tools.list_prims import list_stage_prims_tool, find_prims_by_na#@pytest.mark.skip(reason="Server process startup test requires additional setup")
-
-    @pytest.mark.asynciome_tool
-from server.tools.load_stage import load_usd_stage_tool
+from server import server
+from tools.hierarchy import get_stage_hierarchy_tool
+from tools.inspect import inspect_prim_tool
+from tools.list_prims import (
+    find_prims_by_name_tool,
+    list_stage_prims_tool,
+)
+from tools.load_stage import load_usd_stage_tool
 
 # Path to test USD file
 TEST_USD_FILE = str(Path(__file__).parent.parent.parent / "data" / "HelloWorld.usda")
@@ -190,8 +189,6 @@ class TestUSDMCPServerErrorHandling:
 class TestUSDMCPServerIntegration:
     """Integration tests for USD MCP server."""
 
-    #@pytest.mark.skip(reason="Server process startup test requires additional setup")
-    @pytest.mark.asyncio
     def test_server_process_startup(self):
         """Test that the server process starts up without errors."""
         # Path to the main.py file

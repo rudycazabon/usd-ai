@@ -1,0 +1,11 @@
+{
+	"folders": [
+		{
+			"path": "."
+		},
+		{
+			"path": "../../AppData/Roaming/Claude/logs"
+		}
+	],
+	"settings": {}
+}

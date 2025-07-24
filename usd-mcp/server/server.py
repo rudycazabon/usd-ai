@@ -4,10 +4,10 @@ from typing import Optional
 
 from mcp.server.fastmcp import FastMCP
 
-from server.tools.hierarchy import get_stage_hierarchy_tool
-from server.tools.inspect import inspect_prim_tool
-from server.tools.list_prims import find_prims_by_name_tool, list_stage_prims_tool
-from server.tools.load_stage import load_usd_stage_tool
+from tools.hierarchy import get_stage_hierarchy_tool
+from tools.inspect import inspect_prim_tool
+from tools.list_prims import find_prims_by_name_tool, list_stage_prims_tool
+from tools.load_stage import load_usd_stage_tool
 
 # Create FastMCP server
 mcp = FastMCP("USD MCP Server")
