@@ -13,18 +13,18 @@ import pytest
 # Add the server directory to the Python path
 sys.path.insert(0, str(Path(__file__).parent.parent))
 
-# Import server components
-from server import server
-from tools.hierarchy import get_stage_hierarchy_tool
-from tools.inspect import inspect_prim_tool
-from tools.list_prims import (
+# Import server components - Fixed import paths
+from server.server import server  # Import server instance from server.server module
+from server.tools.hierarchy import get_stage_hierarchy_tool
+from server.tools.inspect import inspect_prim_tool
+from server.tools.list_prims import (
     find_prims_by_name_tool,
     list_stage_prims_tool,
 )
-from tools.load_stage import load_usd_stage_tool
+from server.tools.load_stage import load_usd_stage_tool
 
-# Path to test USD file
-TEST_USD_FILE = str(Path(__file__).parent.parent.parent / "data" / "HelloWorld.usda")
+# Path to test USD file - Fixed path to point to correct location
+TEST_USD_FILE = str(Path(__file__).parent.parent / "data" / "HelloWorld.usda")
 
 
 class TestUSDMCPServerProtocol:
@@ -191,22 +191,23 @@ class TestUSDMCPServerIntegration:
 
     def test_server_process_startup(self):
         """Test that the server process starts up without errors."""
-        # Path to the main.py file
-        main_py_path = str(Path(__file__).parent.parent / "main.py")
-        
         # Get the Python executable
         if sys.platform == "win32":
             python_exe = os.path.join(os.path.dirname(sys.executable), "python.exe")
         else:
             python_exe = sys.executable
         
-        # Start the server process
+        # Get the path to the usd-mcp directory
+        usd_mcp_dir = str(Path(__file__).parent.parent)
+        
+        # Start the server process as a module
         process = subprocess.Popen(
-            [python_exe, main_py_path],
+            [python_exe, "-m", "server"],
             stdin=subprocess.PIPE,
             stdout=subprocess.PIPE,
             stderr=subprocess.PIPE,
-            text=True
+            text=True,
+            cwd=usd_mcp_dir
         )
         
         try:

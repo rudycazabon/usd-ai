@@ -8,7 +8,7 @@ from pathlib import Path
 import pytest
 
 # Add the usd-mcp directory to the Python path
-sys.path.insert(0, str(Path(__file__).parent.parent.parent))
+sys.path.insert(0, str(Path(__file__).parent.parent))
 
 # Now we can import from the server package
 from server.tools.hierarchy import get_stage_hierarchy_tool
@@ -17,7 +17,7 @@ from server.tools.list_prims import list_stage_prims_tool
 from server.tools.load_stage import load_usd_stage_tool
 
 # Path to test USD file from tutorials
-TEST_USD_FILE = str(Path(__file__).parent.parent.parent / "data" / "HelloWorld.usda")
+TEST_USD_FILE = str(Path(__file__).parent.parent / "data" / "HelloWorld.usda")
 
 
 class TestUSDMCPServer:

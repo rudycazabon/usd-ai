@@ -4,7 +4,7 @@ from typing import Any, Dict, List, Optional
 
 import mcp.types as types
 
-from prim_inspector import get_prim_inspector
+from ..prim_inspector import get_prim_inspector
 
 
 async def list_stage_prims_tool(arguments: Dict[str, Any]) -> List[types.ContentBlock]:
